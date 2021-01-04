@@ -16,24 +16,33 @@
       {% assign reviews = productData.reviews %}
       {% assign availableRetailers = productData.retailers %}
       {% assign productImage = productData.image | replace: '145', '400' %}
-   
-     <h2>Book Title: {{ bookTitle}}</h2>
-     <img src="{{ productImage }}" alt="book cover"/>
-     <p>Author {{ productAuthor }}</p>
-     <p>description: {{ description }}</p>
-     <p>Author bio:{{ contributorBio }}</p>
-     <p>price: {{ price }} USD</p>
-     <p>Sale date: {{ saleDate }} </p>
-     <h4>Reviews</h4>
-     {% for review in reviews %}
-       <p>{{ review.review.description }}</p>
-     {% endfor %}
-     <h4>Available retailers</h4>
-     {% for retailer in availableRetailers %}
-     <p>{{ retailer.label }}</p>
-     {% endfor %}
- 
- 
+     <div class="book-info-container">
+       <div class="image-container">
+        <img src="{{ productImage }}" alt="book cover"/>
+       </div>
+       <div class="text-container">
+        <h2 class="book-title">{{ bookTitle}}</h2>
+        <p class="book-author">By {{ productAuthor }}</p>
+        <p class="price">${{ price }}</p>
+        <p class="sale-date">Sale date: {{ saleDate }} </p>
+        <h4>Book description:</h4>
+        <p>{{ description }}</p>
+        <p>Author bio:{{ contributorBio }}</p>
+        
+       </div>
+     </div>
+    <section class="reviews">
+      <h4>Reviews</h4>
+      {% for review in reviews %}
+        <p>{{ review.review.description }}</p>
+      {% endfor %}
+    </section>
+     <section class="retailers">
+      <h4>Available retailers</h4>
+      {% for retailer in availableRetailers %}
+      <p>{{ retailer.label }}</p>
+      {% endfor %}
+     </section>
     </div>
   </div>
 </div>
