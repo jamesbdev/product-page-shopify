@@ -9,15 +9,31 @@
       {% assign productAuthor = productData.contributors[0].contributor.name %}
       {% assign bookTitle = productData.title %}
       {% assign description = productData.description %}
+      {% assign productImage = productData.image %}
+      {% assign contributorBio = productData.contributors[0].contributor.bio %}
+      {% assign price = productData.prices[1].amount %}
+      {% assign saleDate = productData.sale_date.date | remove: "00:00:00.000000" %}
+      {% assign reviews = productData.reviews %}
+      {% assign availableRetailers = productData.retailers %}
+      {% assign productImage = productData.image | replace: '145', '400' %}
    
      <h2>Book Title: {{ bookTitle}}</h2>
+     <img src="{{ productImage }}" alt="book cover"/>
      <p>Author {{ productAuthor }}</p>
      <p>description: {{ description }}</p>
-     <p>Contributor bio</p>
-     <p>price</p>
-      <div class="rte">
-        {{ page.content }}
-      </div>
+     <p>Author bio:{{ contributorBio }}</p>
+     <p>price: {{ price }} USD</p>
+     <p>Sale date: {{ saleDate }} </p>
+     <h4>Reviews</h4>
+     {% for review in reviews %}
+       <p>{{ review.review.description }}</p>
+     {% endfor %}
+     <h4>Available retailers</h4>
+     {% for retailer in availableRetailers %}
+     <p>{{ retailer.label }}</p>
+     {% endfor %}
+ 
+ 
     </div>
   </div>
 </div>
