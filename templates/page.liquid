@@ -1,13 +1,25 @@
+
 <div class="page-width">
   <div class="grid">
     <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
       <div class="section-header text-center">
         <h1>{{ page.title }}</h1>
       </div>
-
+      {% assign productData = page.metafields.global.book_data %}
+      {% assign productAuthor = productData.contributors[0].contributor.name %}
+      {% assign bookTitle = productData.title %}
+      {% assign description = productData.description %}
+   
+     <h2>Book Title: {{ bookTitle}}</h2>
+     <p>Author {{ productAuthor }}</p>
+     <p>description: {{ description }}</p>
+     <p>Contributor bio</p>
+     <p>price</p>
       <div class="rte">
         {{ page.content }}
       </div>
     </div>
   </div>
 </div>
+
+
