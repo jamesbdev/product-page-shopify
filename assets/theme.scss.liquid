@@ -8670,8 +8670,14 @@ $min-height-disclosure: 92px;
 .book-info-container {
   display: flex;
   flex-direction: column;
+  @media screen and (min-width: 450px) {
+    width: 70%;
+    margin: 0 auto;
+  }
 
 }
+
+
 
 .book-title {
   font-size: 20px;
@@ -8716,15 +8722,16 @@ $min-height-disclosure: 92px;
 }
 
 .reviews {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 
   h4 {
     cursor: pointer;
   }
-  .review {
-    text-align: center;
+  .reviews-container {
     display: none;
+    text-align: center;
   }
+
 }
 
 
@@ -8743,6 +8750,7 @@ $min-height-disclosure: 92px;
   .book-info-container {
     flex-direction: row;
     justify-content: space-between;
+    width: 100%;
 
     .image-container {
       width: 45%;
@@ -8752,5 +8760,11 @@ $min-height-disclosure: 92px;
       width: 40%;
     }
   }
+   .reviews {
+    .reviews-container {
+      text-align: left;
+    }
+   }
+
 }
 
