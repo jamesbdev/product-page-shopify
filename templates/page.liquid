@@ -28,27 +28,29 @@
         <p class="sale-date">Sale date: {{ saleDate }} </p>
        </div>
      </div>
-     <section class="description">
+     <section class="book-description">
       <h4 id="book-description">Book description</h4> 
       <div class="description">
         {{ description }}
       </div>
      </section>
      <section class="contributor-bio">
-      <h4>Author biography</h4>
-      <p>{{ contributorBio }}</p>
+      <h4 id="author-bio">Author biography</h4>
+      <div class="bio-container">
+        <p class="author-bio">{{ contributorBio }}</p>
+      </div>
+      
      </section>
     <section class="reviews">
-      <h4>Reviews</h4>
+      <h4 id="reviews">Reviews</h4>
       {% for review in reviews %}
-        <p class="review">{{ review.review.description }}
-          <br><span>{{ review.review.reviewer }}</span> 
-        </p>
-     
+          <p class="review">{{ review.review.description }}
+            <br><span>{{ review.review.reviewer }}</span> 
+          </p>
       {% endfor %}
     </section>
      <section class="retailers">
-      <h4>Available retailers</h4>
+      <h4 id="retailers">Available retailers</h4>
       <ul>
       {% for retailer in availableRetailers %}
         <li class="available-retailer"><a href="{{ retailer.path }}">{{ retailer.label }}</a></li>
@@ -60,11 +62,23 @@
 </div>
 
 <script>
-  const bookDescription = document.getElementById('book-description');
-  const bookDescriptionInfo = document.getElementsByClassName('description')[0];
+  //toggles book description
+  jQuery('#book-description').click(function(){
+    jQuery('.description').toggle("slow")
+  });
+  //toggles author biography
+  jQuery('#author-bio').click(function(){
+    jQuery('.bio-container').toggle("slow")
+  });
 
-  bookDescription.addEventListener('click', function(){
-    bookDescriptionInfo.style.display = 'block';
-  })
+  //toggles reviews
+  jQuery('#reviews').click(function(){
+    jQuery('.review').toggle("slow")
+  });
+  jQuery('#retailers').click(function(){
+    jQuery('.available-retailer').toggle("slow")
+  });
+
+ 
 </script>
 
