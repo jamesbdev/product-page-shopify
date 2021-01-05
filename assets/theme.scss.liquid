@@ -8670,6 +8670,7 @@ $min-height-disclosure: 92px;
 .book-info-container {
   display: flex;
   flex-direction: column;
+
 }
 
 .book-title {
@@ -8687,5 +8688,38 @@ $min-height-disclosure: 92px;
   padding: 12px;
   width: 5em;
   margin-bottom: 1em;
+  cursor: pointer;
+}
+
+.description {
+  //display: none;
+  margin-top: 3em;
+}
+
+.reviews {
+  margin-bottom: 2em;
+}
+
+.review {
+  text-align: center;
+}
+
+.available-retailer {
+  margin: 1em 0;
+}
+
+@media screen and (min-width: 768px){
+  .book-info-container {
+    flex-direction: row;
+    justify-content: space-between;
+
+    .image-container {
+      width: 45%;
+    }
+
+    .text-container {
+      width: 40%;
+    }
+  }
 }
 
