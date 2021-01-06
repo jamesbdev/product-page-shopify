@@ -52,8 +52,8 @@
          <section class="retailers">
           <h4 id="retailers">Available retailers</h4>
           <ul class="available-retailer">
-          {% for retailer in availableRetailers %}
-            <li><a href="{{ retailer.path }}">{{ retailer.label }}</a></li>
+          {% for retailer in availableRetailers %} 
+            <li><a href="{{ retailer.path }}" target="_blank">{{ retailer.label }}</a></li>
           {% endfor %}
         </ul> 
          </section>
